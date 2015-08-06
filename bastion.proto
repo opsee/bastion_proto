@@ -6,20 +6,21 @@ option java_package = "co.opsee.bartnet";
 option java_multiple_files = true;
 option java_outer_classname = "BastionProto";
 
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
 
 service Checker {
-	rpc TestCheck(TestCheckRequest) return (TestCheckResponse) {}
+	rpc TestCheck(TestCheckRequest) returns (TestCheckResponse) {}
 }
 
 message TestCheckRequest {
 	int32 max_hosts = 1;
-	Timestamp deadline = 2;
-	Check check = 3;
+	google.protobuf.Timestamp deadline = 2;
+	google.protobuf.Any check_spec = 3;
 }
 
 message TestCheckResponse {
-	string check_id = 1;
-	repeated Response responses = 2;
+	repeated google.protobuf.Any responses = 1;
 }
 
 message Target {
@@ -28,22 +29,20 @@ message Target {
 	string id = 3;
 }
 
-message HTTPHeader {
+message Header {
 	string name = 1;
 	repeated string values = 2;
 }
 
-message Check {
+message HttpCheck {
 	string name = 1;
-	string id = 2;
-	Duration interval = 3;
-	string path = 4;
-	string protocol = 5;
-	int32 port = 6;
-	string verb = 7;
-	Target target = 8;
-	repeated Header headers = 9;
-	string body = 10;
+	string path = 2;
+	string protocol = 3;
+	int32 port = 4;
+	string verb = 5;
+	Target target = 6;
+	repeated Header headers = 7;
+	string body = 8;
 }
 
 message Metric {
