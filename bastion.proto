@@ -2,25 +2,32 @@ syntax = "proto3";
 
 package bastion;
 
-option java_package = "co.opsee.bartnet";
+option java_package = "co.opsee";
 option java_multiple_files = true;
 option java_outer_classname = "BastionProto";
-
-import "google/protobuf/any.proto";
-import "google/protobuf/timestamp.proto";
 
 service Checker {
 	rpc TestCheck(TestCheckRequest) returns (TestCheckResponse) {}
 }
 
+message Any {
+	string type_url = 1;
+	bytes value = 2;
+}
+
+message Timestamp {
+	int64 seconds = 1;
+	int32 nanos = 2;
+}
+
 message TestCheckRequest {
 	int32 max_hosts = 1;
-	google.protobuf.Timestamp deadline = 2;
-	google.protobuf.Any check_spec = 3;
+	Timestamp deadline = 2;
+	Any check_spec = 3;
 }
 
 message TestCheckResponse {
-	repeated google.protobuf.Any responses = 1;
+	repeated Any responses = 1;
 }
 
 message Target {
