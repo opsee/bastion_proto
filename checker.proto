@@ -61,7 +61,7 @@ message Metric {
 	repeated string tags = 4;
 }
 
-message Response {
+message HttpResponse {
 	int32 code = 1;
 	string body = 2;
 	repeated Header headers = 3;
