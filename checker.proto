@@ -17,7 +17,7 @@ message Any {
 
 message Timestamp {
 	int64 seconds = 1;
-	int32 nanos = 2;
+	int64 nanos = 2;
 }
 
 message TestCheckRequest {
