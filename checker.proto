@@ -8,6 +8,10 @@ option java_outer_classname = "BastionProto";
 
 service Checker {
 	rpc TestCheck(TestCheckRequest) returns (TestCheckResponse) {}
+	rpc CreateCheck(CheckResourceRequest) returns (CheckResourceResponse) {}
+	rpc RetrieveCheck(CheckResourceRequest) returns (CheckResourceResponse) {}
+	rpc UpdateCheck(CheckResourceRequest) returns (CheckResourceResponse) {}
+	rpc DeleteCheck(CheckResourceRequest) returns (CheckResourceResponse) {}
 }
 
 message Any {
@@ -18,6 +22,24 @@ message Any {
 message Timestamp {
 	int64 seconds = 1;
 	int64 nanos = 2;
+}
+
+message CheckWithId {
+	string id = 1;
+	Any check_spec = 2;
+}
+
+message CheckResourceResponse {
+	message ResourceResponse {
+		string id = 1;
+		CheckWithId check_spec = 2;
+		string error = 3;
+	}
+	repeated ResourceResponse responses = 1;
+}
+
+message CheckResourceRequest {
+	repeated CheckWithId check_spec = 1;
 }
 
 message TestCheckRequest {
