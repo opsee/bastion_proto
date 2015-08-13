@@ -24,38 +24,17 @@ message Timestamp {
 	int64 nanos = 2;
 }
 
-message CheckWithId {
-	string id = 1;
-	Any check_spec = 2;
-}
-
-message CheckResourceResponse {
-	message ResourceResponse {
-		string id = 1;
-		CheckWithId check_spec = 2;
-		string error = 3;
-	}
-	repeated ResourceResponse responses = 1;
-}
-
-message CheckResourceRequest {
-	repeated CheckWithId check_spec = 1;
-}
-
-message TestCheckRequest {
-	int32 max_hosts = 1;
-	Timestamp deadline = 2;
-	Any check_spec = 3;
-}
-
-message TestCheckResponse {
-	repeated Any responses = 1;
-}
-
 message Target {
 	string name = 1;
 	string type = 2;
 	string id = 3;
+}
+
+message Check {
+	string id = 1;
+	int32 interval = 2;
+	Target target = 3;
+	Any check_spec = 4;
 }
 
 message Header {
@@ -69,9 +48,8 @@ message HttpCheck {
 	string protocol = 3;
 	int32 port = 4;
 	string verb = 5;
-	Target target = 6;
-	repeated Header headers = 7;
-	string body = 8;
+	repeated Header headers = 6;
+	string body = 7;
 }
 
 message Metric {
@@ -90,4 +68,28 @@ message HttpResponse {
 	repeated Metric metrics = 4;
 	string error = 5;
 	string host = 6;
+}
+
+message CheckResourceResponse {
+	message ResourceResponse {
+		string id = 1;
+		Check check = 2;
+		string error = 3;
+	}
+	repeated ResourceResponse responses = 1;
+}
+
+message CheckResourceRequest {
+	repeated Check check = 1;
+}
+
+message TestCheckRequest {
+	int32 max_hosts = 1;
+	Timestamp deadline = 2;
+	Target target = 3;
+	Any check_spec = 4;
+}
+
+message TestCheckResponse {
+	repeated Any responses = 1;
 }
