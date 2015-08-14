@@ -80,7 +80,7 @@ message CheckResourceResponse {
 }
 
 message CheckResourceRequest {
-	repeated Check check = 1;
+	repeated Check checks = 1;
 }
 
 message TestCheckRequest {
