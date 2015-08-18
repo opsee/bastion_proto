@@ -88,8 +88,7 @@ message CheckResourceRequest {
 message TestCheckRequest {
 	int32 max_hosts = 1;
 	Timestamp deadline = 2;
-	Target target = 3;
-	Check check = 4;
+	Check check = 3;
 }
 
 message TestCheckResponse {
