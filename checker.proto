@@ -89,7 +89,7 @@ message TestCheckRequest {
 	int32 max_hosts = 1;
 	Timestamp deadline = 2;
 	Target target = 3;
-	Any check_spec = 4;
+	Check check = 4;
 }
 
 message TestCheckResponse {
