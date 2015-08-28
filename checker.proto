@@ -36,6 +36,7 @@ message Check {
 	Target target = 3;
 	Timestamp last_run = 4;
 	Any check_spec = 5;
+	string environment_id = 6;
 }
 
 message Header {
