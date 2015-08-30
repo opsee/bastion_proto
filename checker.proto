@@ -56,11 +56,8 @@ message HttpCheck {
 
 message Metric {
 	string name = 1;
-	oneof value {
-		int64 integer = 2;
-		double decimal = 3;
-	}
-	repeated string tags = 4;
+	double value = 2;
+	repeated string tags = 3;
 }
 
 message HttpResponse {
