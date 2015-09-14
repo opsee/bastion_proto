@@ -98,3 +98,17 @@ message TestCheckRequest {
 message TestCheckResponse {
 	repeated Any responses = 1;
 }
+
+message CheckResult {
+	string check_id = 1;
+	string customer_id = 2;
+	Timestamp timestamp = 3;
+	repeated Any responses = 4;
+}
+
+message DiscoveryEvent {
+	string customer_id = 1;
+	Timestamp timestamp = 2;
+	string type = 3;
+	string resource = 4;
+}
