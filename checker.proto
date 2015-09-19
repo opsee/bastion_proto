@@ -99,11 +99,17 @@ message TestCheckResponse {
 	repeated Any responses = 1;
 }
 
+message CheckResponse {
+	Target target = 1;
+	Any response = 2;
+	bool passing = 3;
+}
+
 message CheckResult {
 	string check_id = 1;
 	string customer_id = 2;
 	Timestamp timestamp = 3;
-	repeated Any responses = 4;
+	repeated CheckResponse responses = 4;
 }
 
 message DiscoveryEvent {
