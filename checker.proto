@@ -71,8 +71,7 @@ message HttpResponse {
 	string body = 2;
 	repeated Header headers = 3;
 	repeated Metric metrics = 4;
-	string error = 5;
-	string host = 6;
+	string host = 5;
 }
 
 message CheckResourceResponse {
@@ -96,13 +95,14 @@ message TestCheckRequest {
 }
 
 message TestCheckResponse {
-	repeated Any responses = 1;
+	repeated CheckResponse responses = 1;
 }
 
 message CheckResponse {
 	Target target = 1;
 	Any response = 2;
-	bool passing = 3;
+	string error = 3;
+	bool passing = 4;
 }
 
 message CheckResult {
