@@ -35,6 +35,7 @@ message Target {
 	string name = 1;
 	string type = 2 [(is_required)=true]; //required
 	string id = 3 [(is_required)=true]; //required
+	string address = 4;
 }
 
 message Check {
