@@ -110,7 +110,8 @@ message CheckResult {
 	string check_id = 1;
 	string customer_id = 2;
 	Timestamp timestamp = 3;
-	repeated CheckResponse responses = 4;
+        bool passing = 4;
+	repeated CheckResponse responses = 5;
 }
 
 message DiscoveryEvent {
