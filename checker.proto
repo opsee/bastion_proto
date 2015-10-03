@@ -90,9 +90,9 @@ message CheckResourceRequest {
 }
 
 message TestCheckRequest {
-	int32 max_hosts = 1;
-	Timestamp deadline = 2;
-	Check check = 3;
+	int32 max_hosts = 1 [(is_required)=true];
+	Timestamp deadline = 2 [(is_required)=true];
+	Check check = 3 [(is_required)=true];
 }
 
 message TestCheckResponse {
