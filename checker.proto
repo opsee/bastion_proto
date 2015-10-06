@@ -112,6 +112,7 @@ message CheckResult {
 	Timestamp timestamp = 3;
 	bool passing = 4;
 	repeated CheckResponse responses = 5;
+	Target target = 6;
 }
 
 message DiscoveryEvent {
