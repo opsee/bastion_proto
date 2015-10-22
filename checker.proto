@@ -97,6 +97,7 @@ message TestCheckRequest {
 
 message TestCheckResponse {
 	repeated CheckResponse responses = 1;
+	string error = 2;
 }
 
 message CheckResponse {
