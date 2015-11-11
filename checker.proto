@@ -44,6 +44,7 @@ message Check {
 	Target target = 3 [(is_required)=true]; //required
 	Timestamp last_run = 4;
 	Any check_spec = 5 [(is_required)=true]; //required
+	string name = 6 [(is_required)=true]; //required
 }
 
 message Header {
@@ -52,7 +53,7 @@ message Header {
 }
 
 message HttpCheck {
-	string name = 1;
+	string name = 1; //deprecated
 	string path = 2 [(is_required)=true]; //required
 	string protocol = 3 [(is_required)=true]; //required
 	int32 port = 4 [(is_required)=true]; //required
@@ -114,6 +115,7 @@ message CheckResult {
 	bool passing = 4;
 	repeated CheckResponse responses = 5;
 	Target target = 6;
+	string check_name = 7;
 }
 
 message DiscoveryEvent {
