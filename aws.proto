@@ -10,7 +10,7 @@ extend google.protobuf.EnumValueOptions {
     string enum_name = 51234;
 }
 
-package aws_proto;
+package aws_command;
 
 option java_package = "co.opsee.proto";
 option java_multiple_files = true;
