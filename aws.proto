@@ -19,6 +19,7 @@ option java_outer_classname = "BastionProto";
 service ec2 {
     rpc StartInstances(StartInstancesRequest) returns(StartInstancesResult) {}
     rpc StopInstances(StopInstancesRequest) returns(StopInstancesResult) {}
+    rpc RebootInstances(RebootInstancesRequest) returns(RebootInstancesResult) {}
 }
 
 message StopInstancesRequest {
@@ -51,4 +52,13 @@ message StartInstancesResult {
    repeated InstanceStateChange StartingInstances = 1;
 }
 
+message RebootInstancesRequest {
+   bool dryRun = 1;
+   repeated string InstanceIds = 2 [(is_required)=true];
+}
+
+// ec2.RebootInstancesOutput is just an empty struct, so just return whether or not the command executed in (err)
+message RebootInstancesResult{
+    string err = 1;    
+}
 
