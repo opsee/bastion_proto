@@ -14,7 +14,7 @@ package aws_command;
 
 option java_package = "co.opsee.proto";
 option java_multiple_files = true;
-option java_outer_classname = "BastionProto";
+option java_outer_classname = "AWSProto";
 
 service ec2 {
     rpc StartInstances(StartInstancesRequest) returns(StartInstancesResult) {}
