@@ -13,3 +13,7 @@ brew tap homebrew/dupes
 brew tap grpc/grpc
 brew install grpc/grpc/grpc
 ```
+
+## Install go-grpc, proto3, and protoc
+go get -u github.com/golang/protobuf/{proto,protoc-gen-go}
+go get google.golang.org/grpc

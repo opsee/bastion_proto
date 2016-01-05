@@ -45,18 +45,18 @@ message Check {
 	Timestamp last_run = 4;
 	Any check_spec = 5 [(is_required)=true]; //required
 	string name = 6 [(is_required)=true]; //required
-        repeated Assertion assertions = 7;
+	repeated Assertion assertions = 7;
 }
 
 message Assertion {
 	// key is one of "code", "header", "body".
 	string key = 1 [(is_required)=true];
-        // In the case of key=header, optional_key would be the header field.
-        string optional_key = 2;
-        // relationship is one of: "equal" "notEqual" "empty" "notEmpty" "contain" "notContain" "regExp"
-        // we don't use an enum, because proto3 support is not super great.
-        string relationship = 3 [(is_required)=true];
-        string operand = 4;
+	// In the case of key=header, optional_key would be the header field.
+	string optional_key = 2;
+	// relationship is one of: "equal" "notEqual" "empty" "notEmpty" "contain" "notContain" "regExp"
+	// we don't use an enum, because proto3 support is not super great.
+	string relationship = 3 [(is_required)=true];
+	string operand = 4;
 }
 
 message Header {
@@ -74,10 +74,23 @@ message HttpCheck {
 	string body = 7;
 }
 
+message RDSCheck {
+	string name = 1; //deprecated
+	string protocol = 2 [(is_required)=true]; //required
+	string username = 3 [(is_required)=true]; // required
+	string password = 4 [(is_required)=true]; // required
+	string database = 5 [(is_required)=true]; // required
+	string query_string = 6[(is_required)=true];   // required
+}
+
 message Metric {
 	string name = 1;
 	double value = 2;
 	repeated string tags = 3;
+}
+
+message RDSResponse {
+	string rows = 1;
 }
 
 message HttpResponse {
