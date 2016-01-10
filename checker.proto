@@ -52,7 +52,7 @@ message Assertion {
 	// key is one of "code", "header", "body".
 	string key = 1 [(is_required)=true];
         // In the case of key=header, optional_key would be the header field.
-        string optional_key = 2;
+        string value = 2;
         // relationship is one of: "equal" "notEqual" "empty" "notEmpty" "contain" "notContain" "regExp"
         // we don't use an enum, because proto3 support is not super great.
         string relationship = 3 [(is_required)=true];
