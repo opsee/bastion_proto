@@ -74,10 +74,18 @@ message HttpCheck {
 	string body = 7;
 }
 
+message CloudWatchCheck {
+	Target target = 1;
+	string metric_name = 2;
+	string function = 3;
+	repeated string function_params = 4;
+}
+
 message Metric {
 	string name = 1;
 	double value = 2;
 	repeated string tags = 3;
+	Timestamp timestamp = 4;
 }
 
 message HttpResponse {
