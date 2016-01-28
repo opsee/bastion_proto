@@ -46,6 +46,7 @@ message Check {
 	Any check_spec = 5 [(is_required)=true]; //required
 	string name = 6 [(is_required)=true]; //required
         repeated Assertion assertions = 7;
+        repeated CheckResult results = 8;
 }
 
 message Assertion {
