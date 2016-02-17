@@ -111,6 +111,10 @@ message CheckResourceRequest {
 	repeated Check checks = 1;
 }
 
+message ResultsResource {
+  repeated CheckResult results = 1;
+}
+
 message TestCheckRequest {
 	int32 max_hosts = 1 [(is_required)=true];
 	Timestamp deadline = 2 [(is_required)=true];
